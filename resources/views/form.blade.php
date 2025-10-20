@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Form pelaporan</title>
+    <title>Form Mahasiswa</title>
 </head>
 <body>
-    <h1>from pelaporan</h1>
-    <form action="/proses" method="post">
+    <h2>Input Data Mahasiswa</h2>
+    
+
+    @if (isset($message))
+    <p style="color: green; font-weight: bold;">{{ $message }}</p>
+@endif
+
+
+    <form action="/simpan" method="POST">
         @csrf
         <label>Nama:</label>
-        <input type="text" name="nama"><br><br>
+        <input type="text" name="nama" required><br><br>
 
-        <label>jenis bencana:</label>
-        <input type="number" name="umur"><br><br>
+        <label>NIM:</label>
+        <input type="text" name="nim" required><br><br>
 
-        <label>Alamat:</label>
-        <textarea name="alamat"></textarea><br><br>
+        <label>Jurusan:</label>
+        <input type="text" name="jurusan" required><br><br>
 
-        <button type="submit">Kirim</button>
+        <button type="submit">Simpan</button>
     </form>
+
+    <br>
+    <a href="/daftar-mahasiswa">Lihat Daftar Mahasiswa</a>
 </body>
 </html>
